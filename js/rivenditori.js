@@ -1,5 +1,10 @@
 // Rivenditori Page Specific JavaScript
 
+console.log("RIVENDITORI.JS LOADED");
+console.log("SUPABASE_URL:", window.SUPABASE_URL);
+console.log("SUPABASE_KEY_START:", (window.SUPABASE_ANON_KEY || "").slice(0, 10));
+console.log("SUPABASE_LIB:", !!window.supabase);
+
 class RivenditoriAuth {
     constructor() {
         this.currentUser = null;
