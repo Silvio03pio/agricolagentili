@@ -1,51 +1,8 @@
 {
-  "vini": [
-    {
-      "id": 1,
-      "nome": "Isabel",
-      "descrizione": "Un vino rosso strutturato con sentori di frutta rossa matura e spezie.",
-      "prezzo": 15.9,
-      "immagine": "/images/BV_isabel.jpeg",
-      "categoria": "vini",
-      "stripePriceId": "price_REPLACE_ME_ISABEL_VINO"
-    },
-    {
-      "id": 2,
-      "nome": "Lilly",
-      "descrizione": "Vino bianco fresco e minerale, perfetto per accompagnare pesce e frutti di mare.",
-      "prezzo": 12.5,
-      "immagine": "/images/BV_LILLY.jpeg",
-      "categoria": "Bianco",
-      "stripePriceId": "price_REPLACE_ME_LILLY_VINO"
-    }
-  ],
-  "oli": [
-    {
-      "id": 101,
-      "nome": "Olio EVO Tenuta Belvedere",
-      "descrizione": "Olio dal sapore equilibrato con note erbacee e sentore di mandorla.",
-      "prezzo": 12.9,
-      "immagine": "/images/BO_TENUTA.png",
-      "formato": "500ml",
-      "stripePriceId": "price_REPLACE_ME_TENUTA_OLIO"
-    },
-    {
-      "id": 102,
-      "nome": "Olio EVO BIS",
-      "descrizione": "Prodotto esclusivamente da olive della varietà Ascolana, dal sapore intenso e fruttato.",
-      "prezzo": 18.5,
-      "immagine": "/images/BO_BIS.png",
-      "formato": "500ml",
-      "stripePriceId": "price_REPLACE_ME_BIS_OLIO"
-    },
-    {
-      "id": 103,
-      "nome": "Olio EVO Isabel",
-      "descrizione": "Olio prodotto con metodo biologico, dal sapore delicato e leggero.",
-      "prezzo": 15.0,
-      "immagine": "/images/BO_ISABEL.png",
-      "formato": "500ml",
-      "stripePriceId": "price_REPLACE_ME_ISABEL_OLIO"
-    }
-  ]
+  "name": "agricolagentili",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": {
+    "stripe": "^16.0.0"
+  }
 }
