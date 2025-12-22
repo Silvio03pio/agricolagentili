@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vini - Agricola Gentili</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Spectral:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/vini.css">
+</head>
+<body>
+    <!-- Header inserito dinamicamente con JS -->
+    <header id="dynamic-header"></header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="vini-hero">
+            <div class="container">
+                <h1>I Nostri Vini</h1>
+                <p>L'essenza delle colline umbre in ogni bottiglia</p>
+            </div>
+        </section>
+
+        <!-- Winemaking Process Section -->
+        <section class="winemaking-process">
+            <div class="container">
+                <h2>L'Arte della Vinificazione</h2>
+                
+                <div class="process-steps">
+                    <!-- Step 1 -->
+                    <div class="process-step">
+                        <div class="step-content">
+                            <div class="step-number">01</div>
+                            <h3>Vendemmia Manuale</h3>
+                            <p>La raccolta dell'uva avviene esclusivamente a mano, selezionando i grappoli migliori al momento ottimale di maturazione. Ogni grappolo viene attentamente esaminato per garantire la massima qualità.</p>
+                            <div class="step-image">
+                                <img src="images/U_vendemmia.jpg" alt="Vendemmia manuale" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="process-step reverse">
+                        <div class="step-content">
+                            <div class="step-number">02</div>
+                            <h3>Pigiatura Tradizionale</h3>
+                            <p>Utilizziamo metodi di pigiatura tradizionali che rispettano l'integrità degli acini. La pigiatura soffice preserva i profumi primari e le caratteristiche varietali dell'uva.</p>
+                            <div class="step-image">
+                                <img src="images/U_pigiatura.jpg" alt="Pigiatura dell'uva" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="process-step">
+                        <div class="step-content">
+                            <div class="step-number">03</div>
+                            <h3>Fermentazione Naturale</h3>
+                            <p>La fermentazione avviene con lieviti indigeni presenti naturalmente sulle bucce dell'uva. Questo processo lento e naturale sviluppa complessità aromatica e carattere territoriale.</p>
+                            <div class="step-image">
+                                <img src="images/U_fermentazione.jpg" alt="Fermentazione del vino" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="process-step reverse">
+                        <div class="step-content">
+                            <div class="step-number">04</div>
+                            <h3>Affinamento in Botte</h3>
+                            <p>I nostri vini riposano in botti di rovere francese di prima e seconda passaggio. L'affinamento lento permette al vino di sviluppare eleganza, complessità e tannini setosi.</p>
+                            <div class="step-image">
+                                <img src="images/U_affinamento.jpg" alt="Affinamento in botte" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="process-step">
+                        <div class="step-content">
+                            <div class="step-number">05</div>
+                            <h3>Imbottigliamento Artigianale</h3>
+                            <p>L'imbottigliamento avviene senza filtrazione eccessiva per preservare la struttura e il carattere del vino. Ogni bottiglia viene etichettata a mano con cura meticolosa.</p>
+                            <div class="step-image">
+                                <img src="images/U_imbottigliamento.jpg" alt="Imbottigliamento" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wine Varieties Section -->
+        <section class="wine-varieties">
+            <div class="container">
+                <h2>Le Nostre Tipologie</h2>
+                
+                <div class="varieties-grid">
+                    <div class="variety-card">
+                        <div class="variety-image">
+                            <img src="images/BV_LILLY.jpeg" alt="Vino Bianco" loading="lazy">
+                        </div>
+                        <h3>Vini Bianchi</h3>
+                        <p>Vini freschi ed eleganti con note agrumate e minerali. Perfetti per accompagnare pesce e piatti leggeri.</p>
+                        <div class="wine-details">
+                            <span class="wine-type">Bianco</span>
+                            <span class="wine-region">Orvieto Classico</span>
+                        </div>
+                    </div>
+
+                    <div class="variety-card">
+                        <div class="variety-image">
+                            <img src="images/BV_ISABEL.jpeg" alt="Vino Rosso" loading="lazy">
+                        </div>
+                        <h3>Vini Rossi</h3>
+                        <p>Strutturati e complessi, con tannini nobili e lunghi finali. Ideali per carni rosse e formaggi stagionati.</p>
+                        <div class="wine-details">
+                            <span class="wine-type">Rosso</span>
+                            <span class="wine-region">Umbria IGT</span>
+                        </div>
+                    </div>
+
+                    <div class="variety-card">
+                        <div class="variety-image">
+                            <img src="images/BV_lilly&isabel.jpeg" alt="Vino Rosato" loading="lazy">
+                        </div>
+                        <h3>Vini Rosati</h3>
+                        <p>Freschi e fruttati, con delicate note floreali. Perfetti per aperitivi e piatti estivi.</p>
+                        <div class="wine-details">
+                            <span class="wine-type">Rosato</span>
+                            <span class="wine-region">Umbria Rosato</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quality Features Section -->
+        <section class="quality-features">
+            <div class="container">
+                <h2>Eccellenza in ogni dettaglio</h2>
+                
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🍇</div>
+                        <h3>Uve Selezionate</h3>
+                        <p>Utilizziamo solo uve di altissima qualità da vigneti selezionati</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">🌱</div>
+                        <h3>Biologico</h3>
+                        <p>Viticoltura biologica certificata nel rispetto dell'ambiente</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">👨‍🌾</div>
+                        <h3>Artigianale</h3>
+                        <p>Produzione limitata con attenzione artigianale</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="vini-cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h1>Scopri la Nostra Collezione</h1>
+                    
+                    <a href="negozio.html" class="btn btn-large">Esplora i Vini</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer inserito dinamicamente con JS -->
+    <footer id="dynamic-footer"></footer>
+
+    <!-- JS -->
+    <script src="js/components.js"></script>
+    <script src="js/vini.js"></script>
+</body>
+</html>

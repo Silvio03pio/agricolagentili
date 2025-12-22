@@ -1,0 +1,38 @@
+{
+  "products": [
+    {
+      "id": 1001,
+      "nome": "Vino Riserva Privata",
+      "descrizione": "Riserva speciale esclusiva per rivenditori, invecchiamento 36 mesi",
+      "prezzo": 28.90,
+      "prezzoOriginale": 35.90,
+      "immagine": "https://placehold.co/300x400/cccccc/333333/png?text=Riserva+Privata",
+      "categoria": "Rosso",
+      "sku": "RV001",
+      "disponibilita": 150,
+      "anno": 2020
+    },
+    {
+      "id": 1002,
+      "nome": "Olio Extra Vergine Premium",
+      "descrizione": "Olio di altissima qualità per clienti esigenti, spremitura a freddo",
+      "prezzo": 22.50,
+      "prezzoOriginale": 28.00,
+      "immagine": "https://placehold.co/300x400/cccccc/333333/png?text=Olio+Premium",
+      "formato": "500ml",
+      "sku": "RO001",
+      "disponibilita": 200
+    },
+    {
+      "id": 1003,
+      "nome": "Selection Blanc de Blancs",
+      "descrizione": "Spumante metodo classico, per palati raffinati",
+      "prezzo": 32.00,
+      "prezzoOriginale": 40.00,
+      "immagine": "https://placehold.co/300x400/cccccc/333333/png?text=Blanc+de+Blancs",
+      "categoria": "Spumante",
+      "sku": "RS001",
+      "disponibilita": 80
+    }
+  ]
+}

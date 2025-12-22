@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area Rivenditori - Agricola Gentili</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Spectral:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/rivenditori.css">
+</head>
+<body>
+    <!-- Header inserito dinamicamente con JS -->
+    <header id="dynamic-header"></header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="rivenditori-hero">
+            <div class="container">
+                <h1>Area Rivenditori</h1>
+                <p>Accedi al tuo account per prezzi speciali e condizioni riservate</p>
+            </div>
+        </section>
+
+        <!-- Login/Register Tabs -->
+        <section class="auth-section">
+            <div class="container">
+                <div class="auth-tabs">
+                    <button class="tab-btn active" data-tab="login">Accedi</button>
+                    <button class="tab-btn" data-tab="register">Registrati</button>
+                </div>
+
+                <!-- Login Form -->
+                <div id="login-form" class="auth-form active">
+                    <form id="loginForm" class="auth-form-content">
+                        <div class="form-group">
+                            <label for="login-email">Email *</label>
+                            <input type="email" id="login-email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="login-password">Password *</label>
+                            <input type="password" id="login-password" name="password" required>
+                            <button type="button" class="toggle-password" aria-label="Mostra password">👁️</button>
+                        </div>
+                        
+                        <div class="form-options">
+                            <label class="remember-me">
+                                <input type="checkbox" name="remember">
+                                Ricordami
+                            </label>
+                            <a href="#password-recovery" class="forgot-password">Password dimenticata?</a>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-auth">
+                            Accedi al Account
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Register Form -->
+                <div id="register-form" class="auth-form">
+                    <form id="registerForm" class="auth-form-content">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="reg-company">Nome Azienda *</label>
+                                <input type="text" id="reg-company" name="company" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="reg-vat">Partita IVA *</label>
+                                <input type="text" id="reg-vat" name="vat" required pattern="[0-9]{11}">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="reg-name">Nome *</label>
+                                <input type="text" id="reg-name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="reg-surname">Cognome *</label>
+                                <input type="text" id="reg-surname" name="surname" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="reg-email">Email *</label>
+                                <input type="email" id="reg-email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="reg-phone">Telefono *</label>
+                                <input type="tel" id="reg-phone" name="phone" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="reg-password">Password *</label>
+                                <input type="password" id="reg-password" name="password" required minlength="8">
+                            </div>
+                            <div class="form-group">
+                                <label for="reg-confirm-password">Conferma Password *</label>
+                                <input type="password" id="reg-confirm-password" name="confirmPassword" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reg-address">Indirizzo *</label>
+                            <input type="text" id="reg-address" name="address" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="reg-city">Città *</label>
+                                <input type="text" id="reg-city" name="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="reg-zip">CAP *</label>
+                                <input type="text" id="reg-zip" name="zip" required pattern="[0-9]{5}">
+                            </div>
+                        </div>
+                        
+                        <div class="form-consent">
+                            <input type="checkbox" id="reg-privacy" name="privacy" required>
+                            <label for="reg-privacy">
+                                Accetto i <a href="#terms">Termini e Condizioni</a> e la <a href="#privacy">Privacy Policy</a>
+                            </label>
+                        </div>
+                        
+                        <div class="form-consent">
+                            <input type="checkbox" id="reg-newsletter" name="newsletter">
+                            <label for="reg-newsletter">
+                                Desidero ricevere comunicazioni commerciali
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-auth">
+                            Crea Account Rivenditore
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="benefits-section">
+            <div class="container">
+                <h2>Vantaggi per i Rivenditori</h2>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">💰</div>
+                        <h3>Prezzi Speciali</h3>
+                        <p>Prezzi riservati esclusivamente ai rivenditori con sconti progressivi</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🚚</div>
+                        <h3>Spedizioni Dedicate</h3>
+                        <p>Spedizioni prioritarie e condizioni logistiche agevolate</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">📦</div>
+                        <h3>Ordini Personalizzati</h3>
+                        <p>Possibilità di ordini su misura e confezioni speciali</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">👨‍💼</div>
+                        <h3>Supporto Dedicato</h3>
+                        <p>Assistenza personalizzata per ogni tua esigenza</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Section (Visible only when logged in) -->
+        <section id="dashboard-section" class="dashboard-section" style="display: none;">
+            <div class="container">
+                <div class="dashboard-header">
+                    <h2>Benvenuto, <span id="user-name">Rivenditore</span></h2>
+                    <button id="logout-btn" class="btn btn-outline">Esci</button>
+                </div>
+                
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h3>I Tuoi Ordini</h3>
+                        <p>Gestisci e traccia i tuoi ordini</p>
+                        <a href="#orders" class="btn btn-secondary">Visualizza Ordini</a>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <h3>Listino Prezzi</h3>
+                        <p>Scarica il listino prezzi riservato</p>
+                        <a href="#pricelist" class="btn btn-secondary">Scarica PDF</a>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <h3>I Tuoi Dati</h3>
+                        <p>Gestisci il tuo profilo e preferenze</p>
+                        <a href="#profile" class="btn btn-secondary">Modifica Profilo</a>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <h3>Supporto</h3>
+                        <p>Contatta il nostro team dedicato</p>
+                        <a href="#support" class="btn btn-secondary">Richiedi Assistenza</a>
+                    </div>
+                </div>
+                
+                <!-- Rivenditori Products Grid -->
+                <div class="rivenditori-products">
+                    <h3>Catalogo Riservato</h3>
+                    <div id="rivenditori-grid" class="products-grid">
+                        <!-- Prodotti riservati verranno caricati dinamicamente -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Password Recovery Modal -->
+        <div id="password-recovery" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h3>Recupera Password</h3>
+                <form id="recoveryForm">
+                    <div class="form-group">
+                        <label for="recovery-email">Email</label>
+                        <input type="email" id="recovery-email" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Invia Link di Recupero</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer inserito dinamicamente con JS -->
+    <footer id="dynamic-footer"></footer>
+
+    <!-- JS -->
+    <script src="js/components.js"></script>
+    <script src="js/rivenditori.js"></script>
+</body>
+</html>

@@ -1,0 +1,350 @@
+/* About Page Styles */
+.page-hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/S_orvieto.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 8rem 0;
+    text-align: center;
+    color: white;
+}
+
+.page-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.page-hero p {
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.story-intro {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.story-intro p {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.story-quote {
+    font-style: italic;
+    font-size: 1.3rem;
+    color: #555;
+    margin: 2rem auto;
+    padding: 2rem;
+    text-align: center;
+    border-left: 4px solid rgb(140, 140, 102);
+    background-color: #f9f9f9;
+    max-width: 700px;
+    border-radius: 4px;
+}
+
+/* Snake Timeline Styles */
+.snake-timeline-section {
+    padding: 4rem 0;
+    background-color: #f9f9f9;
+    position: relative;
+    overflow: hidden;
+}
+
+.snake-timeline-section h2 {
+    text-align: center;
+    margin-bottom: 4rem;
+    color: #2c2c2c;
+    position: relative;
+    z-index: 2;
+}
+
+.snake-timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.snake-timeline::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: rgb(140, 140, 102);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.snake-timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+}
+
+.snake-timeline-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.snake-timeline-item:nth-child(odd) {
+    justify-content: flex-start;
+}
+
+.snake-timeline-item:nth-child(even) {
+    justify-content: flex-end;
+}
+
+.snake-timeline-content {
+    width: 45%;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.snake-timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+}
+
+.snake-timeline-item-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.snake-timeline-item:nth-child(odd) .snake-timeline-item-content {
+    flex-direction: row;
+}
+
+.snake-timeline-item:nth-child(even) .snake-timeline-item-content {
+    flex-direction: row-reverse;
+}
+
+.snake-timeline-img-container {
+    flex: 0 0 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.snake-timeline-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.snake-timeline-content:hover .snake-timeline-img {
+    transform: scale(1.05);
+}
+
+.snake-timeline-text-content {
+    flex: 1;
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.snake-timeline-date {
+    font-weight: bold;
+    color: rgb(140, 140, 102);
+    margin-bottom: 0.5rem;
+    font-family: 'Spectral', serif;
+    font-size: 1.6rem;
+}
+
+.snake-timeline-text-content h3 {
+    margin-bottom: 0.6rem;
+    color: #2c2c2c;
+    font-size: 1.1rem;
+}
+
+.snake-timeline-text-content p {
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+.snake-timeline-circle {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: rgb(140, 140, 102);
+    border: 3px solid white;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+    box-shadow: 0 0 0 2px rgb(140, 140, 102);
+}
+
+.snake-timeline-item:nth-child(odd) .snake-timeline-circle {
+    right: -8px;
+}
+
+.snake-timeline-item:nth-child(even) .snake-timeline-circle {
+    left: -8px;
+}
+
+/* Philosophy Section */
+.philosophy {
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.philosophy h2 {
+    margin-bottom: 2rem;
+    color: #2c2c2c;
+}
+
+.philosophy p {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .page-hero {
+        padding: 6rem 0;
+    }
+    
+    .page-hero h1 {
+        font-size: 2.8rem;
+    }
+    
+    .page-hero p {
+        font-size: 1.3rem;
+    }
+    
+    .snake-timeline-content {
+        width: 85%;
+    }
+    
+    .snake-timeline-item:nth-child(odd),
+    .snake-timeline-item:nth-child(even) {
+        justify-content: center;
+    }
+    
+    .snake-timeline::before {
+        left: 50px;
+    }
+    
+    .snake-timeline-item:nth-child(odd) .snake-timeline-circle,
+    .snake-timeline-item:nth-child(even) .snake-timeline-circle {
+        left: 38px;
+        right: auto;
+    }
+    
+    .snake-timeline-item:nth-child(odd) .snake-timeline-item-content,
+    .snake-timeline-item:nth-child(even) .snake-timeline-item-content {
+        flex-direction: row;
+        margin-left: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .story-quote {
+        font-size: 1.1rem;
+        padding: 1.5rem;
+    }
+    
+    .snake-timeline-img-container {
+        flex: 0 0 100px;
+    }
+    
+    .snake-timeline-text-content {
+        padding: 1rem;
+    }
+    
+    .snake-timeline-text-content h3 {
+        font-size: 1rem;
+    }
+    
+    .snake-timeline-text-content p {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .snake-timeline-content {
+        width: 90%;
+    }
+    
+    .snake-timeline-item-content {
+        flex-direction: column !important;
+    }
+    
+    .snake-timeline-img-container {
+        flex: 0 0 120px;
+        width: 100%;
+    }
+    
+    .snake-timeline-text-content {
+        padding: 1rem;
+    }
+    
+    .snake-timeline::before {
+        left: 30px;
+    }
+    
+    .snake-timeline-item:nth-child(odd) .snake-timeline-circle,
+    .snake-timeline-item:nth-child(even) .snake-timeline-circle {
+        left: 18px;
+    }
+    
+    .snake-timeline-item:nth-child(odd) .snake-timeline-item-content,
+    .snake-timeline-item:nth-child(even) .snake-timeline-item-content {
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-hero {
+        padding: 4rem 0;
+    }
+    
+    .page-hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .page-hero p {
+        font-size: 1.1rem;
+    }
+    
+    .story-intro,
+    .snake-timeline-section,
+    .philosophy {
+        padding: 3rem 0;
+    }
+    
+    .snake-timeline-img-container {
+        flex: 0 0 100px;
+    }
+    
+    .snake-timeline-text-content {
+        padding: 0.8rem;
+    }
+    
+    .snake-timeline-text-content h3 {
+        font-size: 0.95rem;
+    }
+    
+    .snake-timeline-text-content p {
+        font-size: 0.8rem;
+    }
+}

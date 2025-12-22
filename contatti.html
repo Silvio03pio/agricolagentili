@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti - Agricola Gentili</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Spectral:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contatti.css">
+</head>
+<body>
+    <!-- Header inserito dinamicamente con JS -->
+    <header id="dynamic-header"></header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="contatti-hero">
+            <div class="container">
+                <h1>Contattaci</h1>
+                <p>Siamo qui per rispondere a tutte le tue domande</p>
+            </div>
+        </section>
+
+        <!-- Contact Info Section -->
+        <section class="contact-info">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- Address -->
+                    <div class="contact-card">
+                        <div class="contact-icon">📍</div>
+                        <h3>Dove Siamo</h3>
+                        <p>Via delle Vigne, 123<br>05018 Orvieto (TR)<br>Umbria, Italia</p>
+                        <a href="https://maps.google.com/?q=Via+delle+Vigne+123+Orvieto" target="_blank" class="contact-link">
+                            Apri su Google Maps →
+                        </a>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="contact-card">
+                        <div class="contact-icon">📞</div>
+                        <h3>Telefono</h3>
+                        <p>+39 0763 123456</p>
+                        <a href="tel:+390763123456" class="contact-link">
+                            Chiama ora →
+                        </a>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="contact-card">
+                        <div class="contact-icon">✉️</div>
+                        <h3>Email</h3>
+                        <p>info@agricolagentili.com</p>
+                        <a href="mailto:info@agricolagentili.com" class="contact-link">
+                            Invia email →
+                        </a>
+                    </div>
+                    <!-- instagram -->
+                    <div class="contact-card">
+                        <div class="contact-icon">📸</div>
+                        <h3>Instagram</h3>
+                        <p>@agricolagentili</p>
+                        <a href="https://www.instagram.com/agricolagentili" target="_blank" class="contact-link">
+                            Visita il profilo →
+                        </a>
+                    </div>
+                    
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="contact-form-section">
+            <div class="container">
+                <div class="form-container">
+                    <div class="form-intro">
+                        <h2>Scrivici un Messaggio</h2>
+                        <p>Compila il form sottostante e ti risponderemo entro 24 ore</p>
+                    </div>
+                    
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Nome e Cognome *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Telefono</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Oggetto *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Seleziona un oggetto...</option>
+                                <option value="info">Informazioni prodotti</option>
+                                <option value="order">Ordini e spedizioni</option>
+                                <option value="wholesale">Rivenditori</option>
+                                <option value="visit">Visita in cantina</option>
+                                <option value="other">Altro</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Messaggio *</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <div class="form-consent">
+                            <input type="checkbox" id="privacy" name="privacy" required>
+                            <label for="privacy">
+                                Acconsento al trattamento dei miei dati personali secondo la Privacy Policy
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-submit">
+                            <span class="btn-text">Invia Messaggio</span>
+                            <span class="btn-loading" style="display: none;">Invio in corso...</span>
+                        </button>
+                    </form>
+                    
+                    <div id="form-success" class="form-success" style="display: none;">
+                        <div class="success-icon">✅</div>
+                        <h3>Messaggio inviato con successo!</h3>
+                        <p>Ti risponderemo entro 48 ore. Grazie per averci contattato.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="team-section">
+            <div class="container">
+                <h2>Il Nostro Team</h2>
+                <p class="team-subtitle">Le persone che rendono speciale Agricola Gentili</p>
+                
+                <div class="team-grid">
+                    <!-- Yuri -->
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="images/team-yuri.jpg" alt="Yuri Gentili" loading="lazy">
+                        </div>
+                        <h3>Yuri Gentili</h3>
+                        <p class="member-role">Proprietario & Enologo</p>
+                        <p class="member-desc">Appassionato di viticoltura da sempre, guida la produzione con amore e dedizione.</p>
+                    </div>
+
+                    <!-- Simon -->
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="images/team-simon.jpg" alt="Simon Gentili" loading="lazy">
+                        </div>
+                        <h3>Simon Gentili</h3>
+                        <p class="member-role">Proprietario & Agronomo</p>
+                        <p class="member-desc">Esperto in agricoltura sostenibile, si prende cura dei nostri vigneti e uliveti.</p>
+                    </div>
+
+                    <!-- Silvio -->
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="images/team-silvio.jpg" alt="Silvio Izzo" loading="lazy">
+                        </div>
+                        <h3>Silvio Izzo</h3>
+                        <p class="member-role">Sviluppatore Web</p>
+                        <p class="member-desc">Creatore di questo sito, si occupa della presenza online dell'azienda.</p>
+                    </div>
+
+                    <!-- Additional team members can be added here -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer inserito dinamicamente con JS -->
+    <footer id="dynamic-footer"></footer>
+
+    <!-- JS -->
+    <script src="js/components.js"></script>
+    <script src="js/contatti.js"></script>
+</body>
+</html>

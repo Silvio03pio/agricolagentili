@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olio EVO - Agricola Gentili</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Spectral:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/olio.css">
+</head>
+<body>
+    <!-- Header inserito dinamicamente con JS -->
+    <header id="dynamic-header"></header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="olio-hero">
+            <div class="container">
+                <h1>Olio Extra Vergine di Oliva</h1>
+                <p>L'oro verde delle colline umbre, frutto di tradizione e passione</p>
+            </div>
+        </section>
+
+        <!-- Production Process Section -->
+        <section class="production-process">
+            <div class="container">
+                <h2>La Nostra Filosofia Produttiva</h2>
+                
+                <div class="process-steps">
+                    <!-- Step 1 -->
+                    <div class="process-step">
+                        <div class="step-content">
+                            <div class="step-number">01</div>
+                            <h3>Raccolta Manuale</h3>
+                            <p>Le olive vengono raccolte rigorosamente a mano tra ottobre e novembre, nel momento ottimale di maturazione. Utilizziamo il metodo della brucatura per preservare l'integrità del frutto e garantire una qualità superiore.</p>
+                            <div class="step-image">
+                                <img src="images/O_raccolta.jpg" alt="Raccolta delle olive" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="process-step reverse">
+                        <div class="step-content">
+                            <div class="step-number">02</div>
+                            <h3>Molitura a Freddo</h3>
+                            <p>Entro poche ore dalla raccolta, le olive vengono frante con molazze in pietra a temperature controllate inferiori a 27°C. Questo processo preserva i profumi e le proprietà nutritive dell'olio.</p>
+                            <div class="step-image">
+                                <img src="images/O_macinazione.jpg" alt="Molitura delle olive" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="process-step">
+                        <div class="step-content">
+                            <div class="step-number">03</div>
+                            <h3>Estrazione a Freddo</h3>
+                            <p>L'estrazione avviene per pressione meccanica senza l'uso di solventi chimici. Solo la prima spremitura viene utilizzata per il nostro olio extra vergine, garantendo un prodotto puro e autentico.</p>
+                            <div class="step-image">
+                                <img src="images/O_spremitura.jpg" alt="Estrazione dell'olio" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="process-step reverse">
+                        <div class="step-content">
+                            <div class="step-number">04</div>
+                            <h3>Conservazione Naturale</h3>
+                            <p>L'olio viene conservato in cisterne d'acciaio inox in ambiente controllato, al riparo dalla luce e dall'ossigeno. Questo mantiene inalterate le caratteristiche organolettiche fino all'imbottigliamento.</p>
+                             <div class="step-image">
+                                <img src="images/O_conservazione.jpg" alt="Conservazione dell'olio" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Olive Varieties Section -->
+        <section class="olive-varieties">
+            <div class="container">
+                <h2>Le Nostre Varietà di Olive</h2>
+                
+                <div class="varieties-grid">
+                    <div class="variety-card">
+                        <div class="variety-image">
+                            <img src="images/OT_moraiolo.jpg" alt="Oliva Moraiolo" loading="lazy">
+                        </div>
+                        <h3>Moraiolo</h3>
+                        <p>Caratterizzata da un olio fruttato intenso con note di carciofo e mandorla. Alta resistenza e resa eccellente.</p>
+                    </div>
+
+                    <div class="variety-card">
+                        <div class="variety-image">
+                            <img src="images/OT_leccino.jpg" alt="Oliva Leccino" loading="lazy">
+                        </div>
+                        <h3>Leccino</h3>
+                        <p>Produce un olio dal sapore delicato e armonioso, con sentori erbacei e un retrogusto leggermente amarognolo.</p>
+                    </div>
+
+                    <div class="variety-card">
+                        <div class="variety-image">
+                            <img src="images/OT_frantoio.png" alt="Oliva Frantoio" loading="lazy">
+                        </div>
+                        <h3>Frantoio</h3>
+                        <p>Nota per il suo olio equilibrato con profumi di erba fresca e note piccanti. Eccellente stabilità nel tempo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quality Features Section -->
+        <section class="quality-features">
+            <div class="container">
+                <h2>Caratteristiche del nostro olio EVO</h2>
+                
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🥇</div>
+                        <h3>Extra Vergine</h3>
+                        <p>Acidità inferiore allo 0,8% e assenza di difetti organolettici</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">🌿</div>
+                        <h3>Biologico</h3>
+                        <p>Coltivazione senza pesticidi né fertilizzanti chimici</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">👨‍🌾</div>
+                        <h3>Artigianale</h3>
+                        <p>Produzione limitata e controllo qualità manuale</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="olio-cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h1>Scopri il Nostro Olio EVO</h1>
+                    <a href="negozio.html" class="btn btn-large">Acquista Ora</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer inserito dinamicamente con JS -->
+    <footer id="dynamic-footer"></footer>
+
+    <!-- JS -->
+    <script src="js/components.js"></script>
+    <script src="js/olio.js"></script>
+</body>
+</html>

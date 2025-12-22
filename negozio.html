@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Negozio - Agricola Gentili</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Spectral:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/negozio.css">
+</head>
+<body>
+    <!-- Header inserito dinamicamente con JS -->
+    <header id="dynamic-header"></header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="shop-hero">
+            <div class="container">
+                <h1>Il Nostro Negozio</h1>
+                <p>Scopri l'eccellenza dei nostri vini e oli</p>
+            </div>
+        </section>
+
+        <!-- Filters Section -->
+        <section class="shop-filters">
+            <div class="container">
+                <div class="filters-container">
+                    <div class="filter-group">
+                        <label for="category-filter">Categoria</label>
+                        <select id="category-filter" class="filter-select">
+                            <option value="tutti">Tutti i prodotti</option>
+                            <option value="vini">Vini</option>
+                            <option value="oli">Oli</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="price-filter">Prezzo</label>
+                        <select id="price-filter" class="filter-select">
+                            <option value="tutti">Tutti i prezzi</option>
+                            <option value="0-15">Fino a 15€</option>
+                            <option value="15-20">15€ - 20€</option>
+                            <option value="20-25">20€ - 25€</option>
+                            <option value="25+">Oltre 25€</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="sort-filter">Ordina per</label>
+                        <select id="sort-filter" class="filter-select">
+                            <option value="prezzo-low">Prezzo: Crescente</option>
+                            <option value="prezzo-high">Prezzo: Decrescente</option>
+                        </select>
+                    </div>
+
+                    <button id="reset-filters" class="btn btn-outline">Azzera Filtri</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Grid Section -->
+        <section class="shop-products">
+            <div class="container">
+                <div id="products-grid" class="products-grid">
+                    <!-- I prodotti verranno caricati dinamicamente via JavaScript -->
+                </div>
+
+                <div id="no-products" class="no-products" style="display: none;">
+                    <h3>Nessun prodotto trovato</h3>
+                    <p>Prova a modificare i filtri di ricerca</p>
+                </div>
+
+                <div id="loading-spinner" class="loading-spinner">
+                    <div class="spinner"></div>
+                    <p>Caricamento prodotti...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shopping Cart Sidebar -->
+        <div id="cart-sidebar" class="cart-sidebar">
+            <div class="cart-header">
+                <h3>Il Tuo Carrello</h3>
+                <button id="close-cart" class="close-cart">×</button>
+            </div>
+            <div id="cart-items" class="cart-items">
+                <!-- Gli elementi del carrello verranno aggiunti dinamicamente -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Totale:</span>
+                    <span id="cart-total-price">€0.00</span>
+                </div>
+                <button class="btn btn-checkout" disabled>Checkout</button>
+            </div>
+        </div>
+
+        <!-- Cart Button -->
+        <button id="cart-button" class="cart-button">
+            <span class="cart-icon">🛒</span>
+            <span id="cart-count" class="cart-count">0</span>
+        </button>
+    </main>
+
+    <!-- Footer inserito dinamicamente con JS -->
+    <footer id="dynamic-footer"></footer>
+
+    <!-- JS -->
+    <script src="js/components.js"></script>
+    <script src="js/negozio.js"></script>
+</body>
+</html>
