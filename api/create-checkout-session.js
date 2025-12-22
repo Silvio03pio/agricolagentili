@@ -1,6 +1,6 @@
-import Stripe from "stripe";
-import fs from "node:fs/promises";
-import path from "node:path";
+const Stripe = require("stripe");
+const fs = require("fs").promises;
+const path = require("path");
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
@@ -11,16 +11,14 @@ async function loadCatalog() {
 }
 
 function buildIndex(catalog) {
-  const all = [
-    ...(catalog.vini || []),
-    ...(catalog.oli || [])
-  ];
+  const all = [...(catalog.vini || []), ...(catalog.oli || [])];
   const index = new Map();
   for (const p of all) index.set(String(p.id), p);
   return index;
 }
 
-export default async function handler(req, res) {
+module.exports = async (req, res) => {
+  // Se apri l'URL nel browser (GET), deve rispondere 405 e NON crashare
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
@@ -31,6 +29,11 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Cart is empty" });
     }
 
+    const siteUrl = process.env.SITE_URL;
+    if (!siteUrl) {
+      return res.status(500).json({ error: "Missing SITE_URL env var" });
+    }
+
     const catalog = await loadCatalog();
     const index = buildIndex(catalog);
 
@@ -39,7 +42,6 @@ export default async function handler(req, res) {
       if (!product || !product.stripePriceId) {
         throw new Error(`Invalid product or missing stripePriceId: ${item?.id}`);
       }
-
       const quantity = Math.max(1, Number(item.quantity || 1));
       return { price: product.stripePriceId, quantity };
     });
@@ -47,13 +49,13 @@ export default async function handler(req, res) {
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       line_items,
-      success_url: `${process.env.SITE_URL}/negozio.html?success=1`,
-      cancel_url: `${process.env.SITE_URL}/negozio.html?canceled=1`
+      success_url: `${siteUrl}/negozio.html?success=1`,
+      cancel_url: `${siteUrl}/negozio.html?canceled=1`
     });
 
     return res.status(200).json({ url: session.url });
   } catch (err) {
-    console.error(err);
+    console.error("Checkout session error:", err);
     return res.status(500).json({ error: err.message || "Server error" });
   }
-}
+};
