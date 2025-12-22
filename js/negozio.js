@@ -510,19 +510,24 @@ async function handleCheckout() {
 
 // Initialize enhanced shop
 function initShop() {
-    loadProducts();
-    updateCart();
-    initCheckout();
-    
-    // Add event listeners
-    document.getElementById('category-filter').addEventListener('change', filterProducts);
-    document.getElementById('type-filter').addEventListener('change', filterProducts);
-    document.getElementById('price-filter').addEventListener('change', filterProducts);
-    document.getElementById('sort-filter').addEventListener('change', filterProducts);
-    document.getElementById('search-filter').addEventListener('input', debounce(filterProducts, 300));
-    document.getElementById('reset-filters').addEventListener('click', resetFilters);
-    
-    // Cart functionality
-    document.getElementById('cart-button').addEventListener('click', toggleCart);
-    document.getElementById('close-cart').addEventListener('click', toggleCart);
+  loadProducts();
+  updateCart();
+  initCheckout();
+
+  document.getElementById('category-filter')?.addEventListener('change', filterProducts);
+  document.getElementById('type-filter')?.addEventListener('change', filterProducts);
+  document.getElementById('price-filter')?.addEventListener('change', filterProducts);
+  document.getElementById('sort-filter')?.addEventListener('change', filterProducts);
+
+  const searchEl = document.getElementById('search-filter');
+  if (searchEl) {
+    searchEl.addEventListener('input', debounce(filterProducts, 300));
+  }
+
+  document.getElementById('reset-filters')?.addEventListener('click', resetFilters);
+
+  // Cart functionality
+  document.getElementById('cart-button')?.addEventListener('click', toggleCart);
+  document.getElementById('close-cart')?.addEventListener('click', toggleCart);
 }
+
