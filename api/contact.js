@@ -1,93 +1,82 @@
-// api/contact.js (CommonJS)
-const { createClient } = require("@supabase/supabase-js");
-const crypto = require("crypto");
+// js/contatti.js
+(() => {
+  const form = document.getElementById("contact-form");
+  if (!form) return;
 
-const supabase = createClient(
-  process.env.SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_ROLE_KEY
-);
+  const successBox = document.getElementById("form-success");
+  const btn = form.querySelector('button[type="submit"]');
+  const btnText = btn?.querySelector(".btn-text");
+  const btnLoading = btn?.querySelector(".btn-loading");
 
-function isEmailValid(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-function clamp(str, max) {
-  return (str || "").toString().trim().slice(0, max);
-}
-function sha256(input) {
-  return crypto.createHash("sha256").update(input).digest("hex");
-}
+  // Honeypot anti-bot
+  const hp = document.createElement("input");
+  hp.type = "text";
+  hp.name = "website";
+  hp.autocomplete = "off";
+  hp.tabIndex = -1;
+  hp.style.position = "absolute";
+  hp.style.left = "-9999px";
+  hp.style.opacity = "0";
+  form.appendChild(hp);
 
-// CORS: consenti chiamate da dominio prod e da Live Server
-function setCors(res, origin) {
-  const allowlist = new Set([
-    "https://agricolagentiliorvieto.com",
-    "https://www.agricolagentiliorvieto.com",
-    "http://127.0.0.1:5500",
-    "http://localhost:5500"
-  ]);
+  // Endpoint: in locale (Live Server) punta a Vercel, in prod usa relativo
+  const IS_LOCAL = location.hostname === "127.0.0.1" || location.hostname === "localhost";
+  const VERCEL_ORIGIN = "https://agricolagentili-f4fl.vercel.app";
+  const CONTACT_ENDPOINT = IS_LOCAL ? `${VERCEL_ORIGIN}/api/contact` : "/api/contact";
 
-  if (allowlist.has(origin)) {
-    res.setHeader("Access-Control-Allow-Origin", origin);
-  }
-  res.setHeader("Vary", "Origin");
-  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-}
-
-module.exports = async function handler(req, res) {
-  const origin = req.headers.origin || "";
-  setCors(res, origin);
-
-  if (req.method === "OPTIONS") {
-    return res.status(204).end();
-  }
-
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
-  }
-
-  try {
-    const { name, email, phone, subject, message, privacy, website } = req.body || {};
-
-    // Honeypot anti-bot
-    if ((website || "").toString().trim().length > 0) {
-      return res.status(200).json({ ok: true });
+  function setLoading(isLoading) {
+    if (!btn) return;
+    btn.disabled = isLoading;
+    if (btnText && btnLoading) {
+      btnText.style.display = isLoading ? "none" : "inline";
+      btnLoading.style.display = isLoading ? "inline" : "none";
     }
+  }
 
-    const clean = {
-      name: clamp(name, 120),
-      email: clamp(email, 180).toLowerCase(),
-      phone: clamp(phone, 40),
-      subject: clamp(subject, 40),
-      message: clamp(message, 4000),
-      consent: Boolean(privacy),
-      source: "web",
-      page: "/contatti.html"
+  function showError(message) {
+    alert(message);
+  }
+
+  // Intercetta submit e forza POST via fetch
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const payload = {
+      name: form.elements["name"]?.value || "",
+      email: form.elements["email"]?.value || "",
+      phone: form.elements["phone"]?.value || "",
+      subject: form.elements["subject"]?.value || "",
+      message: form.elements["message"]?.value || "",
+      privacy: form.elements["privacy"]?.checked || false,
+      website: hp.value
     };
 
-    if (!clean.name || clean.name.length < 2) return res.status(400).json({ error: "Nome non valido" });
-    if (!clean.email || !isEmailValid(clean.email)) return res.status(400).json({ error: "Email non valida" });
-    if (!clean.subject) return res.status(400).json({ error: "Seleziona un oggetto" });
-    if (!clean.message || clean.message.length < 10) return res.status(400).json({ error: "Messaggio troppo breve" });
-    if (!clean.consent) return res.status(400).json({ error: "Consenso privacy obbligatorio" });
+    try {
+      setLoading(true);
 
-    // IP hash (privacy-friendly)
-    const ip =
-      (req.headers["x-forwarded-for"] || "").toString().split(",")[0].trim() ||
-      req.socket?.remoteAddress ||
-      "";
-    const ip_hash = ip ? sha256(ip) : null;
+      const res = await fetch(CONTACT_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
 
-    const { error } = await supabase.from("contatti").insert({ ...clean, ip_hash });
+      const text = await res.text();
+      let data = {};
+      try { data = JSON.parse(text); } catch {}
 
-    if (error) {
-      console.error("[CONTACT INSERT ERROR]", error);
-      return res.status(500).json({ error: "Errore server" });
+      if (!res.ok) {
+        throw new Error(data?.error || `Invio non riuscito (HTTP ${res.status})`);
+      }
+
+      form.style.display = "none";
+      if (successBox) successBox.style.display = "block";
+      form.reset();
+    } catch (err) {
+      showError(err?.message || "Invio non riuscito");
+      console.error("[CONTACT FORM ERROR]", err);
+    } finally {
+      setLoading(false);
     }
-
-    return res.status(200).json({ ok: true });
-  } catch (e) {
-    console.error("[CONTACT API ERROR]", e);
-    return res.status(500).json({ error: "Errore server" });
-  }
-};
+  });
+})();
