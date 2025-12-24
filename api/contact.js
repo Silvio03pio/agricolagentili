@@ -1,6 +1,6 @@
-// api/contact.js
-import { createClient } from "@supabase/supabase-js";
-import crypto from "crypto";
+// api/contact.js (CommonJS)
+const { createClient } = require("@supabase/supabase-js");
+const crypto = require("crypto");
 
 const supabase = createClient(
   process.env.SUPABASE_URL,
@@ -17,7 +17,7 @@ function sha256(input) {
   return crypto.createHash("sha256").update(input).digest("hex");
 }
 
-// CORS: consenti chiamate dal tuo dominio e da localhost
+// CORS: consenti chiamate da dominio prod e da Live Server
 function setCors(res, origin) {
   const allowlist = new Set([
     "https://agricolagentiliorvieto.com",
@@ -34,7 +34,7 @@ function setCors(res, origin) {
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 }
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   const origin = req.headers.origin || "";
   setCors(res, origin);
 
@@ -71,7 +71,7 @@ export default async function handler(req, res) {
     if (!clean.message || clean.message.length < 10) return res.status(400).json({ error: "Messaggio troppo breve" });
     if (!clean.consent) return res.status(400).json({ error: "Consenso privacy obbligatorio" });
 
-    // Hash IP (privacy-friendly)
+    // IP hash (privacy-friendly)
     const ip =
       (req.headers["x-forwarded-for"] || "").toString().split(",")[0].trim() ||
       req.socket?.remoteAddress ||
@@ -90,4 +90,4 @@ export default async function handler(req, res) {
     console.error("[CONTACT API ERROR]", e);
     return res.status(500).json({ error: "Errore server" });
   }
-}
+};
